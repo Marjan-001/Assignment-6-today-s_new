@@ -32,17 +32,17 @@ const viewNews = category_id => {
         .then(data => displayNews(data.data))
 }
 const displayNews = news => {
-    console.log(news[0])
-    const newsConatiner = document.getElementById('news-container');
-    newsConatiner.textContent = ``;
+        console.log(news[0])
+        const newsConatiner = document.getElementById('news-container');
+        newsConatiner.textContent = ``;
 
-    news.forEach(posts => {
+        news.forEach(posts => {
 
-        const div = document.createElement('div');
-        div.classList.add('col');
-        console.log(posts);
+            const div = document.createElement('div');
+            div.classList.add('col');
+            console.log(posts);
 
-        div.innerHTML = `
+            div.innerHTML = `
     <div class="card containerPost">
     <img src="${posts.image_url
     }" class="w-full card-img-top" alt="...">
@@ -52,21 +52,49 @@ const displayNews = news => {
     </div>
     <div>
     <div class="d-flex justify-content-evenly">
-    <img src="${posts.author.img}"class="card-img-bottom rounded-circle author" ><span class="text-dark">${posts.author.name}</span>
-    <i class="fa-duotone fa-eye">${posts.total_view}</i>
-    <button class="btn btn-primary mb-2" type="button">More</button>
+    <img src="${posts.author.img}"class="card-img-bottom rounded-circle author" ><span class="text-dark">${posts.author.name ? posts.author.name:"No name"}</span>
+    <i class="fa-duotone fa-eye">${posts.total_view ? posts.total_view:'Empty'}</i>
+    <button class="btn btn-primary mb-2" type="button" data-bs-toggle="modal" data-bs-target="#newsDetailModal">More</button>
     
     </div>
     </div>
     
     `;
-        newsConatiner.appendChild(div);
+            newsConatiner.appendChild(div);
 
-    })
+            const modalTitle = document.getElementById('exampleModalLabel');
+            modalTitle.innerHTML = `
+            
+            <div>
+                <h5 >${posts.title}</h5>
+                <p class="text-sm">${posts.details}</p>
+                <p>View:${posts.total_view}</p>
+            </div>
+            <div>
+            
+            
+            `;
+
+
+
+        })
 
 
 
 
-}
+    }
+    // const loadDetails = news_id => {
+
+//     const url = `https://openapi.programming-hero.com/api/news/${news_id}`;
+//     fetch(url)
+//         .then(res => res.json())
+//         .then(data => displayDetails(data.data))
+// }
+// const displayDetails = newsModal => {
+
+//     const modalTitle = document.getElementById('exampleModalLabel');
+//     modalTitle.innerText = newsModal.title;
+// }
+
 
 loadAllNavTab();
