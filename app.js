@@ -4,6 +4,7 @@ const loadAllNavTab = () => {
         .then(res => res.json())
         .then(data => displayCategories(data.data.news_category))
     toggleSpinner(true);
+
 }
 
 const displayCategories = categories => {
@@ -43,6 +44,13 @@ const displayNews = news => {
     } else {
         noNews.classList.add('d-none');
     }
+
+    const itemAvailable = document.getElementById('item');
+    itemAvailable.value = `Items Found: ${news.length}`;
+
+
+
+
 
     news.forEach(posts => {
 
