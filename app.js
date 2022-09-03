@@ -37,6 +37,13 @@ const displayNews = news => {
     const newsConatiner = document.getElementById('news-container');
     newsConatiner.textContent = ``;
 
+    const noNews = document.getElementById('no-found-message');
+    if (news.length === 0) {
+        noNews.classList.remove('d-none');
+    } else {
+        noNews.classList.add('d-none');
+    }
+
     news.forEach(posts => {
 
         const div = document.createElement('div');
@@ -63,7 +70,7 @@ const displayNews = news => {
     `;
         newsConatiner.appendChild(div);
 
-        toggleSpinner(false);
+
 
         const modalTitle = document.getElementById('exampleModalLabel');
         modalTitle.innerHTML = `
@@ -82,7 +89,7 @@ const displayNews = news => {
 
     })
 
-
+    toggleSpinner(false);
 
 
 }
