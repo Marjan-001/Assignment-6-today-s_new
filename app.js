@@ -3,6 +3,7 @@ const loadAllNavTab = () => {
     fetch(`https://openapi.programming-hero.com/api/news/categories`)
         .then(res => res.json())
         .then(data => displayCategories(data.data.news_category))
+    toggleSpinner(true);
 }
 
 const displayCategories = categories => {
@@ -32,17 +33,17 @@ const viewNews = category_id => {
         .then(data => displayNews(data.data))
 }
 const displayNews = news => {
-        console.log(news[0])
-        const newsConatiner = document.getElementById('news-container');
-        newsConatiner.textContent = ``;
+    console.log(news[0])
+    const newsConatiner = document.getElementById('news-container');
+    newsConatiner.textContent = ``;
 
-        news.forEach(posts => {
+    news.forEach(posts => {
 
-            const div = document.createElement('div');
-            div.classList.add('col');
-            console.log(posts);
+        const div = document.createElement('div');
+        div.classList.add('col');
+        console.log(posts);
 
-            div.innerHTML = `
+        div.innerHTML = `
     <div class="card containerPost">
     <img src="${posts.image_url
     }" class="w-full card-img-top" alt="...">
@@ -60,14 +61,16 @@ const displayNews = news => {
     </div>
     
     `;
-            newsConatiner.appendChild(div);
+        newsConatiner.appendChild(div);
 
-            const modalTitle = document.getElementById('exampleModalLabel');
-            modalTitle.innerHTML = `
+        toggleSpinner(false);
+
+        const modalTitle = document.getElementById('exampleModalLabel');
+        modalTitle.innerHTML = `
             
             <div>
                 <h5 >${posts.title}</h5>
-                <p class="text-sm">${posts.details}</p>
+                <p class="fs-6">${posts.details}</p>
                 <p>View:${posts.total_view}</p>
             </div>
             <div>
@@ -77,24 +80,20 @@ const displayNews = news => {
 
 
 
-        })
+    })
 
 
 
 
+}
+const toggleSpinner = isLoading => {
+    const loaderSection = document.getElementById('loader');
+    if (isLoading) {
+        loaderSection.classList.remove('d-none')
+    } else {
+        loaderSection.classList.add('d-none');
     }
-    // const loadDetails = news_id => {
-
-//     const url = `https://openapi.programming-hero.com/api/news/${news_id}`;
-//     fetch(url)
-//         .then(res => res.json())
-//         .then(data => displayDetails(data.data))
-// }
-// const displayDetails = newsModal => {
-
-//     const modalTitle = document.getElementById('exampleModalLabel');
-//     modalTitle.innerText = newsModal.title;
-// }
+}
 
 
 loadAllNavTab();
