@@ -52,7 +52,7 @@ const displayNews = news => {
     </div>
     <div>
     <div class="d-flex justify-content-evenly">
-    <img src="${posts.author.img}"class="card-img-bottom rounded-circle author" <span class="text-dark">${posts.author.name}</span>
+    <img src="${posts.author.img}"class="card-img-bottom rounded-circle author" ><span class="text-dark">${posts.author.name}</span>
     <i class="fa-duotone fa-eye">${posts.total_view}</i>
     <button class="btn btn-primary mb-2" type="button">More</button>
     
