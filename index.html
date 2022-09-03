@@ -42,7 +42,7 @@
     <header>
 
 
-        <section>
+        <section class="container">
             <nav class="navbar navbar-expand-lg bg-light">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="#">
@@ -56,11 +56,43 @@
                             <li class="nav-item">
                                 <h4 class="nav-link text-primary" aria-current="page">News</h4>
                             </li>
-                            <li class="nav-item">
-                                <h4 id="blog" class="nav-link text-primary" aria-current="page">Blog</h4>
-                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Blog</a>
+                                <ul class="dropdown-menu p-3 " style="max-width: 200px;">
+                                    <li>
+                                        <p class="fs-6 text-primary">1. Difference between var ,let and const</p>
+                                        <p class="fs-6"> var variable is functional scope.It can be updated and re-declared into the scope.<br>let variable is block scope.It can be updated but cannot be re-declared into the scope.<br>const variable is block scope.It cannot
+                                            be updated or re-declared into the scope.</p>
 
-                        </ul>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+
+                                        <p class="fs-6 text-primary">2.Arrow vs Regular functuion</p>
+                                        <p class="fs-6"> If the arrow function conatins one expresstion you ac omit the bracs and expression will be implicitly return <br> In regular function you have to use return keyword to return value.</p>
+
+
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+
+                                        <p class="fs-6 text-primary">3.Why arrow function is used?</p>
+                                        <p class="fs-6"> Arrow functions introduce concise body syntax, or implicit return. This allows the omission of the curly brackets and the return keyword. Implicit return is useful for creating succinct one-line operations in map
+                                            , filter , and other common array methods.</p>
+
+
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+
+
+
+                                </ul>
                     </div>
                 </div>
             </nav>
