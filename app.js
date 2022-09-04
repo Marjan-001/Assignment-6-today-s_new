@@ -45,10 +45,14 @@ const displayNews = news => {
         noNews.classList.add('d-none');
     }
 
+
     const itemAvailable = document.getElementById('item');
     itemAvailable.value = `Items Found: ${news.length}`;
+    // sort view
+    news.sort((a, b) => {
+        return b.total_view - a.total_view;
 
-
+    })
 
 
 
@@ -57,6 +61,7 @@ const displayNews = news => {
         const div = document.createElement('div');
         div.classList.add('col');
         console.log(posts);
+
 
         div.innerHTML = `
     <div class="card containerPost">
