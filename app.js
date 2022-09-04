@@ -69,7 +69,7 @@ const displayNews = news => {
     <div>
     <div class="d-flex justify-content-evenly">
     <img src="${posts.author.img}"class="card-img-bottom rounded-circle author" ><span class="text-dark">${posts.author.name ? posts.author.name:"No name"}</span>
-    <i class="fa-duotone fa-eye">${posts.total_view ? posts.total_view:'Empty'}</i>
+    <span><i class="fa-solid fa-eye"></i>${posts.total_view ? posts.total_view:'Empty'}</span>
     <button class="btn btn-primary mb-2" type="button" data-bs-toggle="modal" data-bs-target="#newsDetailModal">More</button>
     
     </div>
